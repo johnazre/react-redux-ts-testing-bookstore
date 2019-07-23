@@ -4,9 +4,11 @@ import mockAxios from 'axios'
 import * as actions from '../../../store/books/actions'
 import * as types from '../../../store/books/constants'
 
+// Create store shell with middleware built in
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
+// Mock books data
 let booksArr = [
   {
     title: 'Eloquent JavaScript, Second Edition',
@@ -73,6 +75,42 @@ describe('actions', () => {
 
       // Dispatch the action creators you want to test
       return store.dispatch(actions.addBookToCart(1)).then(() => {
+        // Test if the correct actions were dispatched
+        expect(store.getActions()).toEqual(expectedActions)
+      })
+    })
+  })
+
+  describe('the removeBookFromCart action creator', () => {
+    it('should remove the chosen book from the cart', () => {
+      // Create an instance of the store
+      const store = mockStore({
+        books: []
+      })
+
+      // Updated mock book data object to be false
+      let updatedBook = {
+        ...booksArr[0],
+        inCart: false
+      }
+
+      // Recreate the mocked axios patch request
+      mockAxios.patch.mockImplementationOnce(() => {
+        return Promise.resolve({
+          data: updatedBook
+        })
+      })
+
+      // Declare the expected actions
+      const expectedActions = [
+        {
+          type: types.REMOVE_BOOK_FROM_CART,
+          payload: updatedBook
+        }
+      ]
+
+      // Dispatch the action creators you want to test
+      return store.dispatch(actions.removeBookFromCart(1)).then(() => {
         // Test if the correct actions were dispatched
         expect(store.getActions()).toEqual(expectedActions)
       })

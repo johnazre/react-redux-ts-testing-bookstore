@@ -1,6 +1,10 @@
 import { Dispatch } from 'redux'
 import axios from 'axios'
-import { ADD_BOOK_TO_CART, REMOVE_BOOK_FROM_CART, FETCH_BOOKS } from './types'
+import {
+  ADD_BOOK_TO_CART,
+  REMOVE_BOOK_FROM_CART,
+  FETCH_BOOKS
+} from './constants'
 
 export const addBookToCart = (id: number) => async (dispatch: Dispatch) => {
   let response = await axios.patch(
@@ -32,7 +36,7 @@ export const fetchBooks = () => async (dispatch: Dispatch) => {
   let response = await axios.get(`http://localhost:8082/api/books`)
   let books = response.data
 
-  dispatch({
+  return dispatch({
     type: FETCH_BOOKS,
     payload: books
   })

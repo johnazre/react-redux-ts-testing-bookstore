@@ -4,13 +4,13 @@ import { Container, Row, Col } from 'reactstrap'
 import BookList from './components/BookList'
 import Cart from './components/Cart'
 import { fetchBooks } from './store/books/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, connect } from 'react-redux'
 
-function App() {
+export function App(props: any) {
   let dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchBooks())
-  }, [dispatch])
+  }, [])
   return (
     <div className="App">
       <TopNav />
@@ -28,4 +28,5 @@ function App() {
   )
 }
 
+// export default connect()(App)
 export default App

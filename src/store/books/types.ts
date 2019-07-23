@@ -1,6 +1,8 @@
-export const ADD_BOOK_TO_CART = 'ADD_BOOK_TO_CART'
-export const REMOVE_BOOK_FROM_CART = 'REMOVE_BOOK_FROM_CART'
-export const FETCH_BOOKS = 'FETCH_BOOKS'
+import {
+  ADD_BOOK_TO_CART,
+  REMOVE_BOOK_FROM_CART,
+  FETCH_BOOKS
+} from './constants'
 
 export interface IBook {
   id: number

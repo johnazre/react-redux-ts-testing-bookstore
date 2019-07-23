@@ -1,10 +1,9 @@
+import { BookActionTypes, IBook } from './types'
 import {
-  BookActionTypes,
-  IBook,
   ADD_BOOK_TO_CART,
   REMOVE_BOOK_FROM_CART,
   FETCH_BOOKS
-} from './types'
+} from './constants'
 
 let initialState: any = []
 

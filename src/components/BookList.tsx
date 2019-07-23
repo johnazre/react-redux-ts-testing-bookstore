@@ -1,7 +1,6 @@
 import React, { Component, ChangeEvent } from 'react'
 import Book from './Book'
 import { IBook } from '../store/books/types'
-import { addBookToCart } from '../store/books/actions'
 import { connect } from 'react-redux'
 import { AppState } from '../store'
 

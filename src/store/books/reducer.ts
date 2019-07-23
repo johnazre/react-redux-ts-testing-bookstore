@@ -6,7 +6,7 @@ import {
   FETCH_BOOKS
 } from './types'
 
-let initialState: IBook[] = []
+let initialState: any = []
 
 export default (state = initialState, action: BookActionTypes) => {
   switch (action.type) {

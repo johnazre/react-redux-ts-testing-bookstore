@@ -28,7 +28,7 @@ export const removeBookFromCart = (id: number) => async (
   })
 }
 
-export const fetchBooks = (id: number) => async (dispatch: Dispatch) => {
+export const fetchBooks = () => async (dispatch: Dispatch) => {
   let response = await axios.get(`http://localhost:8082/api/books`)
   let books = response.data
 

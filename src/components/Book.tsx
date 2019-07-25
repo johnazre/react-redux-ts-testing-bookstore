@@ -34,10 +34,15 @@ const Book = (props: BookProps) => {
         </Col>
         <Col>
           <CardBody>
-            <CardTitle>{title}</CardTitle>
-            <CardSubtitle>{author}</CardSubtitle>
-            <CardText>{description}</CardText>
-            <Button onClick={() => props.addBookToCart(id)}>Add To Cart</Button>
+            <CardTitle data-testid="title">{title}</CardTitle>
+            <CardSubtitle data-testid="author">{author}</CardSubtitle>
+            <CardText data-testid="description">{description}</CardText>
+            <Button
+              data-testid="add-button"
+              onClick={() => props.addBookToCart(id)}
+            >
+              Add To Cart
+            </Button>
           </CardBody>
         </Col>
       </Row>

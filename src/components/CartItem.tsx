@@ -13,9 +13,14 @@ const CartItem = (props: CartItemProps) => {
     <div>
       <Card>
         <CardBody>
-          <CardTitle>{props.item.title}</CardTitle>
-          <CardSubtitle>${props.item.price}.00</CardSubtitle>
-          <Button onClick={() => dispatch(removeBookFromCart(props.item.id))}>
+          <CardTitle data-testid="cart-title">{props.item.title}</CardTitle>
+          <CardSubtitle data-testid="cart-price">
+            ${props.item.price}.00
+          </CardSubtitle>
+          <Button
+            data-testid="remove-button"
+            onClick={() => dispatch(removeBookFromCart(props.item.id))}
+          >
             Remove
           </Button>
         </CardBody>
